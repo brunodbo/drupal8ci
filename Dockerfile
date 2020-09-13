@@ -68,7 +68,6 @@
 
 # /Tweaked drupal:8.8-apache
 
-
 RUN apt-get update && apt-get install -y \
   git \
   imagemagick \
@@ -83,6 +82,11 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install mysqli \
   && docker-php-ext-install pdo \
   && docker-php-ext-install pdo_mysql
+
+RUN apt-get update
+RUN apt-get install gnupg apt-transport-https ca-certificates -y
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get update -y && apt-get install nodejs -y
 
 # Remove the memory limit for the CLI only.
 RUN echo 'memory_limit = -1' > /usr/local/etc/php/php-cli.ini
