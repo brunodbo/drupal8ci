@@ -83,10 +83,23 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install pdo \
   && docker-php-ext-install pdo_mysql
 
-RUN apt-get update
 RUN apt-get install gnupg apt-transport-https ca-certificates -y
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get update -y && apt-get install nodejs -y
+
+# Cypress dependencies
+# https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies
+RUN apt-get install -y \
+  libgtk2.0-0 \
+  libgtk-3-0 \
+  libgbm-dev \
+  libnotify-dev \
+  libgconf-2-4 \
+  libnss3 libxss1 \
+  libasound2 \
+  libxtst6 \
+  xauth \
+  xvfb
 
 # Remove the memory limit for the CLI only.
 RUN echo 'memory_limit = -1' > /usr/local/etc/php/php-cli.ini
