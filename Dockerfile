@@ -101,9 +101,6 @@ RUN apt-get install -y \
   xauth \
   xvfb
 
-# Install Cypress
-RUN npm install cypress
-
 # Remove the memory limit for the CLI only.
 RUN echo 'memory_limit = -1' > /usr/local/etc/php/php-cli.ini
 
