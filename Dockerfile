@@ -68,6 +68,10 @@
 
 # /Tweaked drupal:8.8-apache
 
+# Prevent https://stackoverflow.com/questions/46247032/how-to-solve-invoke-rc-d-policy-rc-d-denied-execution-of-start-when-building
+# when installing rsync
+RUN echo exit 0 > /usr/sbin/policy-rc.d
+
 RUN apt-get update && apt-get install -y \
   git \
   imagemagick \
