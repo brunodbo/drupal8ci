@@ -68,6 +68,10 @@
 
 # /Tweaked drupal:8.8-apache
 
+# Set container timezone
+ENV TZ=America/Vancouver
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Prevent https://stackoverflow.com/questions/46247032/how-to-solve-invoke-rc-d-policy-rc-d-denied-execution-of-start-when-building
 # when installing rsync
 RUN echo exit 0 > /usr/sbin/policy-rc.d
