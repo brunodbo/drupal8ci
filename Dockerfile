@@ -4,7 +4,7 @@
 # Tweaked drupal:8.8-apache
 
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-  FROM php:7.3-apache-buster
+  FROM php:7.3-apache-bullseye
 
   # install the PHP extensions we need
     RUN set -eux; \
