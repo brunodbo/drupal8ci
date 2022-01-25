@@ -4,7 +4,7 @@
 # Tweaked drupal:8.8-apache
 
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-  FROM php:7.4-apache-bullseye
+  FROM php:7.4-apache-buster
 
   # install the PHP extensions we need
     RUN set -eux; \
@@ -24,12 +24,9 @@
     libzip-dev \
     ; \
     \
-    # See https://github.com/docker-library/drupal/commit/664a5db0266ca176b4d738cc360d69f73ee0d9de
-    # when switching to PHP7.4
     docker-php-ext-configure gd \
-    --with-freetype-dir=/user \
-    --with-jpeg-dir=/usr \
-    --with-png-dir=/usr \
+      --with-freetype \
+		  --with-jpeg=/usr \
     ; \
     \
     docker-php-ext-install -j "$(nproc)" \
