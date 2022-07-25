@@ -122,9 +122,6 @@ RUN chmod +x /tmp/composer-installer.sh
 RUN /tmp/composer-installer.sh
 RUN mv composer.phar /usr/local/bin/composer
 
-# Put a turbo on composer.
-RUN composer global require hirak/prestissimo
-
 # Install XDebug.
 #RUN pecl install xdebug \
 #    && docker-php-ext-enable xdebug
