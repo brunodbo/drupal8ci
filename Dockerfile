@@ -89,7 +89,7 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install pdo_mysql
 
 RUN apt-get install openssh-client gnupg apt-transport-https ca-certificates -y
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get update -y && apt-get install nodejs -y
 
 # Cypress dependencies
