@@ -1,10 +1,9 @@
-# Below is a tweaked version of drupal:8.8-apache, since we don't run PHP7.4 yet.
-#FROM drupal:8.8-apache
+# Tweaked version of https://github.com/docker-library/drupal/blob/0bc267208f3f1405b8441588a48e0004508f65f8/9.4/php8.1/apache-bullseye/Dockerfile
 
-# Tweaked drupal:8.8-apache
+# <Tweaks>
 
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-  FROM php:7.4-apache-buster
+  FROM php:8.1-apache-bullseye
 
   # install the PHP extensions we need
     RUN set -eux; \
@@ -63,7 +62,7 @@
 
     WORKDIR /var/www/html
 
-# /Tweaked drupal:8.8-apache
+# </Tweaks>
 
 # Set container timezone
 ENV TZ=America/Vancouver
