@@ -3,7 +3,7 @@
 # <Tweaks>
 
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-  FROM php:8.3-bullseye
+  FROM php:8.3-apache-bullseye
 
   # install the PHP extensions we need
     RUN set -eux; \
