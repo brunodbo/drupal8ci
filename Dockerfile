@@ -86,7 +86,8 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install bcmath \
   && docker-php-ext-install mysqli \
   && docker-php-ext-install pdo \
-  && docker-php-ext-install pdo_mysql
+  && docker-php-ext-install pdo_mysql \
+  && docker-php-ext-install sockets
 
 RUN apt-get install openssh-client gnupg apt-transport-https ca-certificates -y
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
