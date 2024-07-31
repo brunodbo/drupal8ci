@@ -33,6 +33,7 @@
     opcache \
     pdo_mysql \
     pdo_pgsql \
+    sockets \
     zip \
     ; \
     \
