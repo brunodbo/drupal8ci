@@ -90,9 +90,8 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install sockets
 
 RUN apt-get install openssh-client gnupg apt-transport-https ca-certificates -y
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN apt-get update -y && apt-get install nodejs -y
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install nodejs -y
 
 # Cypress dependencies
 # https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies
