@@ -3,7 +3,7 @@
 # <Tweaks>
 
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-  FROM php:8.1-apache-bullseye
+  FROM php:8.3-apache-bullseye
 
   # install the PHP extensions we need
     RUN set -eux; \
@@ -33,6 +33,7 @@
     opcache \
     pdo_mysql \
     pdo_pgsql \
+    sockets \
     zip \
     ; \
     \
@@ -85,12 +86,12 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install bcmath \
   && docker-php-ext-install mysqli \
   && docker-php-ext-install pdo \
-  && docker-php-ext-install pdo_mysql
+  && docker-php-ext-install pdo_mysql \
+  && docker-php-ext-install sockets
 
 RUN apt-get install openssh-client gnupg apt-transport-https ca-certificates -y
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN apt-get update -y && apt-get install nodejs -y
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install nodejs -y
 
 # Cypress dependencies
 # https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies
